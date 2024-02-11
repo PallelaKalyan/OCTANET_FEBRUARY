@@ -1,0 +1,342 @@
+:root {
+    --primary-accent-color: #e2e2e2;
+    --title-text-color: #14142b;
+    --secondary-text-color: #696969;
+    --black-color: #222222;
+    --white-color: #ffffff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  /* Utilities */
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    margin: 0;
+    cursor: default;
+  }
+  
+  a {
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Cursor */
+  .cursor {
+    position: absolute;
+  
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  
+    background-color: #222;
+  
+    transform: translate(0%, -100%);
+    transition: top 0.1s, left 0.1s, width 0.2s, height 0.2s, opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+    transition-timing-function: ease-out;
+  
+    z-index: 50;
+  }
+  .cursor.initially-hidden {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+  .cursor.focus {
+    width: 13px;
+    height: 13px;
+    transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s;
+    transition-timing-function: ease-out;
+  }
+  
+  .cursor.hide-cursor {
+    width: 0px;
+    height: 0px;
+  }
+  
+  .cursor.title-cursor {
+    background-color: var(--white-color);
+    mix-blend-mode: difference;
+  }
+  /* Container */
+  
+  body {
+    position: relative;
+    height: 100vh;
+    background-image: url(../pics/background-img.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: var(--white-color);
+  
+    font-style: normal;
+    font-size: 16px;
+  }
+  
+  
+  
+  .container {
+    overflow-y: scroll;
+    position: relative;
+  
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    transform: translateY(-50%); 
+  
+    padding: 94px 104px 50px;
+    width: 70%;
+    max-width: 740px;
+    min-width: 400px;
+    height: 90vh;
+  
+    border-radius: 18px;
+    background: var(--white-color);
+    box-shadow: 0px 0px 96px 0px rgba(0, 0, 0, 0.25);
+  }
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 64px 50px 50px;
+    }
+  }
+  
+  
+  /* content */
+  .title {
+    margin-bottom: 24px;
+  
+    color: var(--title-text-color);
+  
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -1.5px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 24px;
+      letter-spacing: -1px;
+    }
+  }
+  
+  /* Input */
+  .input-container {
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 16px;
+  
+    
+  }
+  
+  @media screen and (max-width: 900px) {
+    .input-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  #input {
+    width: 100%;
+    flex: 1;
+    padding: 11px 20px;
+    margin-right: 10px;
+  
+    border: none;
+    outline: none;
+    background: transparent;
+  
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 0.75px;
+  
+    border-radius: 14px;
+    background-color: var(--primary-accent-color);
+  }
+  
+  @media screen and (max-width: 900px) {
+    #input {
+      margin-bottom: 6px;
+  
+    }
+  }
+  
+  
+  .input-button {
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  
+    padding: 11px 50px;
+  
+    border: 2px solid #222222;
+    border-radius: 14px;
+    background-color: var(--primary-accent-color);
+  
+    color: var(--black-color);
+    background: linear-gradient(159deg, #eb72ff 0%, #f5bc4c 90.86%);
+  
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.75;
+    letter-spacing: 0.75px;
+    text-align: center;
+  
+    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @media screen and (max-width: 900px) {
+    .input-button {
+      width: 100%;
+      padding: 11px 30px;
+  
+      font-size: 16px;
+    }
+  }
+  .input-button:hover {
+    background: linear-gradient(159deg, #222222 0%, #222222 90.86%);
+    color: var(--white-color);
+  }
+  
+  /* tasks list */
+  .tasks-summary {
+    margin-bottom: 10px;
+  
+    color: var(--secondary-text-color);
+  
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 0.75px;
+  }
+  
+  .tasks-count {
+    color: var(--black-color);
+  
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .tasks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  
+    list-style: none;
+  }
+  
+  .task-item {
+    padding: 18px 28px 18px 75px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+  
+    border-radius: 17px;
+    border: 1px solid #e2e2e2;
+    color: var(--black-color);
+  
+    cursor: pointer;
+  
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0px;
+  
+    transition: border 300ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .task-item:hover {
+    border: 1px solid #222222;
+    background-color: var(--black-color);
+    color: var(--primary-accent-color);
+    fill: var(--primary-accent-color);
+  }
+  
+  .task-item:last-of-type {
+    margin-bottom: 0;
+  }
+  .task-text-container {
+    width: calc(100% - 30px);
+  
+    word-wrap: break-word;
+  }
+  .radio-btn {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 28px;
+    transform: translateY(-50%);
+  
+    fill: none;
+    stroke: var(--primary-accent-color);
+  
+    transition: color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .task-item:hover .radio--btn {
+    color: var(--black-color);
+  }
+  
+  .trash-btn {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 28px;
+    transform: translateY(-50%);
+  
+    transition: fill 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .trash-btn:hover {
+    fill: #e93636;
+  }
+  
+  .checked {
+    text-decoration: line-through;
+    color: #8f8f8f;
+    font-weight: 600;
+  }
+  
+  .task-item.checked .radio-btn {
+    stroke: var(--black-color);
+    color: var(--black-color);
+  }
+  
+  .task-item.checked::before {
+    opacity: 1;
+  }
+  .task-item::before {
+    box-sizing: border-box;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 28px;
+    transform: translateY(-50%);
+  
+    width: 26px;
+    height: 26px;
+  
+    border-radius: 50%;
+    border: 1px solid #222;
+    background-image: url(../pics/radio-icon-checked.png);
+    background-size: cover;
+  
+    opacity: 0;
+  }
+  
